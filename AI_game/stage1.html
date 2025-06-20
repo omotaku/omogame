@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アクションゲーム</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-wrapper">
+        <div id="game-container">
+            <div id="scanlines"></div>
+
+            <div id="parallax-bg-far"></div>
+            <div id="parallax-bg-near"></div>
+
+            <div id="world">
+                <div id="player">
+                    <div id="player-ride-ofuda"></div>
+                    <div id="player-guard-effect"></div>
+                </div>
+            </div>
+
+            <div id="ui-overlay">
+                <div class="status-bar">
+                    <span class="label">HP</span>
+                    <div class="gauge-background"><div id="hp-bar" class="gauge-fill"></div></div>
+                </div>
+                <div class="status-bar">
+                    <span class="label">MP</span>
+                    <div class="gauge-background"><div id="gauge-bar" class="gauge-fill"></div></div>
+                </div>
+                <div class="status-bar">
+                    <span class="label">飛翔</span>
+                    <div class="gauge-background"><div id="ride-cooldown-bar" class="gauge-fill"></div></div>
+                </div>
+                <div class="status-bar">
+                    <span class="label">SCORE</span>
+                    <div id="score-display" class="score-text">0</div>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="hidden">
+                <h2 class="game-over-title">GAME OVER</h2>
+                <button id="restart-button" class="menu-button">もう一度！</button>
+            </div>
+            
+            <div id="game-clear-screen" class="hidden">
+                <h2 class="game-clear-title">GAME CLEAR</h2>
+                <p class="clear-message">おめでとう！</p>
+                <button id="restart-button-clear" class="menu-button">もう一度！</button>
+            </div>
+
+            <!-- ▼▼▼ ポーズ画面を追加 ▼▼▼ -->
+            <div id="pause-screen" class="hidden">
+                <h2 class="pause-title">PAUSE</h2>
+                <div class="pause-buttons">
+                    <button id="resume-button" class="menu-button">ゲームに戻る</button>
+                    <button id="back-to-select-button" class="menu-button">ステージ選択に戻る</button>
+                </div>
+            </div>
+            <!-- ▲▲▲ 追加ここまで ▲▲▲ -->
+            
+            <div class="controls-info">
+                <p><strong>KB:</strong> ← →:移動 / [SPACE]:ジャンプ / [X]:攻撃 / [Z]:飛翔 / [C]:必殺技 / [A]:ガード</p>
+                <p><strong>[ESC]</strong>: ポーズ</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="audio-container" style="display: none;">
+        <audio id="bgm-main" src="bgm.mp3" preload="auto" loop></audio>
+        <audio id="se-jump" src="jump.mp3" preload="auto"></audio>
+        <audio id="se-shoot" src="shoot.mp3" preload="auto"></audio>
+        <audio id="se-hit" src="hit.mp3" preload="auto"></audio>
+        <audio id="se-damage" src="damage.mp3" preload="auto"></audio>
+        <audio id="se-explosion" src="explosion.mp3" preload="auto"></audio>
+        <audio id="se-gameover" src="gameover.mp3" preload="auto"></audio>
+        <audio id="se-clear" src="clear.mp3" preload="auto"></audio>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
